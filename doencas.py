@@ -1,5 +1,6 @@
 # Wesley Lencione de Oliveira
 # 12225140
+# https://github.com/Lencione/Ciencia-de-Dados-UNIFAJ
 # Nao tratei os possiveis erros de entrada pois acredito que nao seja esse o intuito agora no inicio
 
 # Inicializacao do "banco de dados"
