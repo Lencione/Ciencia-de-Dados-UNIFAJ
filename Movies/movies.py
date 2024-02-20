@@ -1,9 +1,10 @@
 # Wesley Lencione de Oliveira
 # 12225140
-# https://github.com/Lencione/Ciencia-de-Dados-UNIFAJ
+# https://github.com/Lencione/Ciencia-de-Dados-UNIFAJ/tree/master/Movies
 from movies_db import movies
 
 
+# Ler a quantidade e quais os nomes do atores que devem estar no filme
 def get_actors():
     quantity = int(input("Quantos atores voce quer ver no filme? "))
     actors = []
@@ -13,6 +14,7 @@ def get_actors():
     return actors
 
 
+# Ler o tipo de score que deve ser considerado no filme
 def get_by_score():
     score_types = {
         1: ["Historia", "story"],
@@ -38,11 +40,13 @@ def get_by_score():
     return score_types_array
 
 
+# Ler o nome do diretor que deve estar no filme
 def get_director():
     director = input("Qual diretor voce quer? ")
     return director
 
 
+# Ler a quantidade e quais os generos do filme
 def get_genres():
     genres = []
     quantity = int(input("Quantos generos voce quer? "))
@@ -52,11 +56,7 @@ def get_genres():
     return genres
 
 
-def sort_by_score(movies):
-    movies.sort(key=lambda x: x["score"], reverse=True)
-    return movies
-
-
+# Filtrar os filmes baseado nos dados inseridos pelo usuario
 def get_movies(actors, score_types, director, genres):
     movies_filtered = []
     for movie in movies:
@@ -76,6 +76,7 @@ def get_movies(actors, score_types, director, genres):
     return movies_filtered
 
 
+#  Imprimir os filmes filtrados e suas informacoes
 def print_movies(suggested_movies_data):
     for movie in suggested_movies_data:
         print(f"Pontuacao: {movie[1]}")
