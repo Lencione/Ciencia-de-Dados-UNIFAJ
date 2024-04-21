@@ -318,3 +318,13 @@ coffee = [
         ]
     }
 ]
+
+coffee_images = [
+    "./assets/cafe1.png",
+    "./assets/cafe2.png",
+    "./assets/cafe3.png",
+    "./assets/cafe4.png",
+    "./assets/cafe5.png",
+    "./assets/cafe6.png",
+    "./assets/cafe7.png",
+]

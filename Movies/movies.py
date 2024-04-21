@@ -4,8 +4,36 @@
 from movies_db import movies
 
 
+def printActors():
+    actors = [actor for movie in movies for actor in movie["cast"]]
+    actors = list(set(actors))
+    actors.sort()
+    print("Atores disponiveis: ")
+    for actor in actors:
+        print(actor)
+
+
+def printGenres():
+    genres = [genre for movie in movies for genre in movie["genre"]]
+    genres = list(set(genres))
+    genres.sort()
+    print("Generos disponiveis: ")
+    for genre in genres:
+        print(genre)
+
+
+def printDirectors():
+    directors = [movie["director"] for movie in movies]
+    directors = list(set(directors))
+    directors.sort()
+    print("Diretores disponiveis: ")
+    for director in directors:
+        print(director)
+
+
 # Ler a quantidade e quais os nomes do atores que devem estar no filme
 def get_actors():
+    printActors()
     quantity = int(input("Quantos atores voce quer ver no filme? "))
     actors = []
     for i in range(quantity):
@@ -42,12 +70,14 @@ def get_by_score():
 
 # Ler o nome do diretor que deve estar no filme
 def get_director():
+    printDirectors()
     director = input("Qual diretor voce quer? ")
     return director
 
 
 # Ler a quantidade e quais os generos do filme
 def get_genres():
+    printGenres()
     genres = []
     quantity = int(input("Quantos generos voce quer? "))
     for i in range(quantity):

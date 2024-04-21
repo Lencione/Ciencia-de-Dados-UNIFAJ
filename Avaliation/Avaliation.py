@@ -3,6 +3,9 @@ from coffees_db import roast as roast_db
 from coffees_db import harvest as harvest_db
 from coffees_db import localization as localization_db
 from coffees_db import coffee as coffee_db
+from coffees_db import coffee_images as images
+from PIL import Image
+import matplotlib.pyplot as plt
 
 
 def train_model(model_conditions, db):
@@ -12,8 +15,7 @@ def train_model(model_conditions, db):
         for condition in model["conditions"]:
             x.append([condition[model_condition] for model_condition in model_conditions])
             y.append(model["quality"])
-    model = MLPClassifier(solver='lbfgs', activation='logistic', alpha=1e-8, hidden_layer_sizes=(450, 450),
-                          random_state=1, verbose=False)
+    model = MLPClassifier(alpha=1e-8, hidden_layer_sizes=(450, 450), random_state=1)
     model.fit(x, y)
     return model
 
@@ -26,7 +28,11 @@ def predict_model(model, answers):
     return model.predict([answers])[0]
 
 
-
+def printImage(index):
+    image = Image.open(images[index])
+    plt.imshow(image)
+    plt.axis('off')  # Hide axis
+    plt.show()
 
 
 harvest_conditions = ["height", "maturity"]
@@ -52,4 +58,4 @@ coffee_answer = predict_model(coffee_model, [harvest_answer, roast_answer, local
 
 print("\n\nThe quality of the coffee is: (MAX: 7 | MIN:1)")
 print(coffee_answer)
-
+printImage(coffee_answer)
